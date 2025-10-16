@@ -20,9 +20,9 @@
  * THE SOFTWARE.
  */
 
-require_once dirname(__FILE__).'/../lib/otphp.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-class TestTest extends PHPUnit_Framework_TestCase {
+class TestTest extends PHPUnit\Framework\TestCase {
   public function testThatPHPUnitWorks() {
     $this->assertEquals(1,1);
   }

@@ -20,9 +20,9 @@
  * THE SOFTWARE.
  */
 
-require_once dirname(__FILE__).'/../lib/otphp.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-class TestOTP extends PHPUnit_Framework_TestCase {
+class TestOTP extends PHPUnit\Framework\TestCase {
 
   public function test_it_decodes_the_secret() {
     $o = new \OTPHP\OTP('JDDK4U6G3BJLEZ7Y');

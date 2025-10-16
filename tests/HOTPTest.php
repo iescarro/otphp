@@ -20,9 +20,9 @@
  * THE SOFTWARE.
  */
 
-require_once dirname(__FILE__).'/../lib/otphp.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-class HOPTTest extends PHPUnit_Framework_TestCase {
+class HOPTTest extends PHPUnit\Framework\TestCase {
   public function test_it_gets_the_good_code() {
     $o = new \OTPHP\HOTP('JDDK4U6G3BJLEZ7Y');
     $this->assertEquals(855783,$o->at(0));

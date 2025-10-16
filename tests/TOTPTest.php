@@ -20,9 +20,9 @@
  * THE SOFTWARE.
  */
 
-require_once dirname(__FILE__).'/../lib/otphp.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-class TOPTTest extends PHPUnit_Framework_TestCase {
+class TOPTTest extends PHPUnit\Framework\TestCase {
 
   public function test_it_has_an_interval() {
     $o = new \OTPHP\TOTP('JDDK4U6G3BJLEZ7Y');
