@@ -1,0 +1,23 @@
+{
+  "name": "iescarro/otphp",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Huawei\\Otphp\\": "src/"
+    },
+    "files": [
+      "src/otphp.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Ian",
+      "email": "ian.escarro@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "require": {}
+}
