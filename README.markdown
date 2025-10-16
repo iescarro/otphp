@@ -59,7 +59,7 @@ list of OTP credentials.
 
 Scan the following barcode with your phone, using Google Authenticator
 
-![QR Code for OTP](http://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=otpauth%3A%2F%2Ftotp%2Falice%40google.com%3Fsecret%3DJBSWY3DPEHPK3PXP)
+![QR Code for OTP](https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP)
 
 Now run the following and compare the output
 
