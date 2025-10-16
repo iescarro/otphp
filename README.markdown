@@ -27,30 +27,28 @@ composer require iescarro/otphp
 ### Time based OTP's
 
 ```php
-    require __DIR__ . '/vendor/autoload.php';
-    
-    $totp = new \OTPHP\TOTP("base32secret3232");
-    $totp->now(); // => 492039
+require __DIR__ . '/vendor/autoload.php';
+$totp = new \OTPHP\TOTP("base32secret3232");
+$totp->now(); // => 492039
 
-    // OTP verified for current time
-    $totp->verify(492039); // => true
-    //30s later
-    $totp->verify(492039); // => false
+// OTP verified for current time
+$totp->verify(492039); // => true
+//30s later
+$totp->verify(492039); // => false
 ```
 
 ### Counter based OTP's
 
 ```php
-    require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
+$hotp = new \OTPHP\HOTP("base32secretkey3232");
+$hotp->at(0); // => 260182
+$hotp->at(1); // => 55283
+$hotp->at(1401); // => 316439
 
-    $hotp = new \OTPHP\HOTP("base32secretkey3232");
-    $hotp->at(0); // => 260182
-    $hotp->at(1); // => 55283
-    $hotp->at(1401); // => 316439
-
-    // OTP verified with a counter
-    $totp->verify(316439, 1401); // => true
-    $totp->verify(316439, 1402); // => false
+// OTP verified with a counter
+$totp->verify(316439, 1401); // => true
+$totp->verify(316439, 1402); // => false
 ```
 
 ### Google Authenticator Compatible
@@ -59,8 +57,10 @@ The library works with the Google Authenticator iPhone and Android app, and also
 includes the ability to generate provisioning URI's for use with the QR Code scanner
 built into the app.
 
-    $totp->provisioning_uri(); // => 'otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP'
-    $hotp->provisioning_uri(); // => 'otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0'
+```php
+$totp->provisioning_uri(); // => 'otpauth://totp/alice@google.com?secret=JBSWY3DPEHPK3PXP'
+$hotp->provisioning_uri(); // => 'otpauth://hotp/alice@google.com?secret=JBSWY3DPEHPK3PXP&counter=0'
+```
 
 This can then be rendered as a QR Code which can then be scanned and added to the users
 list of OTP credentials.
@@ -73,10 +73,12 @@ Scan the following barcode with your phone, using Google Authenticator
 
 Now run the following and compare the output
 
-    <?php
-    require_once('otphp/lib/otphp.php');
-    $totp = new \OTPHP\TOTP("JBSWY3DPEHPK3PXP");
-    echo "Current OTP: ". $totp->now();
+```php
+<?php
+require_once('vendor/autoload.php');
+$totp = new \OTPHP\TOTP("JBSWY3DPEHPK3PXP");
+echo "Current OTP: ". $totp->now();
+```
 
 ## Licence
 
