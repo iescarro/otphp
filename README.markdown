@@ -18,12 +18,17 @@ Note : This project has not been updated since it was created. If you need a PHP
 
 ## Installation
 
-   clone this repository and include lib/otphp.php in your project. 
+```bash
+composer require iescarro/otphp
+```
 
 ## Use
 
 ### Time based OTP's
 
+```php
+    require __DIR__ . '/vendor/autoload.php';
+    
     $totp = new \OTPHP\TOTP("base32secret3232");
     $totp->now(); // => 492039
 
@@ -31,8 +36,12 @@ Note : This project has not been updated since it was created. If you need a PHP
     $totp->verify(492039); // => true
     //30s later
     $totp->verify(492039); // => false
+```
 
 ### Counter based OTP's
+
+```php
+    require __DIR__ . '/vendor/autoload.php';
 
     $hotp = new \OTPHP\HOTP("base32secretkey3232");
     $hotp->at(0); // => 260182
@@ -42,6 +51,7 @@ Note : This project has not been updated since it was created. If you need a PHP
     // OTP verified with a counter
     $totp->verify(316439, 1401); // => true
     $totp->verify(316439, 1402); // => false
+```
 
 ### Google Authenticator Compatible
 
